@@ -58,7 +58,10 @@ func main() {
 			log.Fatalf("couldnt convert to yaml")
 		}
 
-		os.WriteFile("index.yaml", yamlfile, 0666)
+		err = os.WriteFile(HOME+"/goto/index.yaml", yamlfile, 0666)
+		if err != nil {
+			log.Fatalf("%s\n", err)
+		}
 		os.Exit(0)
 	}
 
